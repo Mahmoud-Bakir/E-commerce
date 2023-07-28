@@ -20,6 +20,7 @@ body{
     --grey:rgb(168, 168, 168);
     --white:#f9f9f9;
     --green:#6AD1B7;
+    --darkgreen:#57a692;
 }
 .form-parent{
     display: flex;
@@ -39,6 +40,10 @@ body{
     gap: 10px;
     padding-bottom: 2%;
     background-color: var(--white);
+}
+.form.in{
+    margin-top: 10%;
+
 }
 h1{
     font-weight: 400;
@@ -74,6 +79,7 @@ input:placeholder{
 input:placeholder-shown{
     color: var(--grey)
 }
+
 button{
     color: var(--white);
     padding: 1rem 1rem;
@@ -86,6 +92,9 @@ button{
     margin-right:10%;
     cursor: pointer;
 
+}
+button:hover{
+    background-color: var(--darkgreen)
 }
 
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
