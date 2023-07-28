@@ -1,0 +1,83 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    font-family: 'Pacifico', cursive;
+    background-color:var(--beige);
+
+}
+*{
+    box-sizing: border-box;
+    font-family:'Pacifico', cursive;
+    ;
+}
+:root{
+    --beige:#dcae84;
+    --purple:#5d18ec;
+    --pink:#cd6ae7;
+    --black:#000000;
+    --grey:rgb(168, 168, 168);
+    --white:#f9f9f9;
+    --blue:#A6EBF5;
+}
+.form-parent{
+    display: flex;
+    width: 100%;
+    justify-content:center ;
+    justify-content: center;
+}
+.form{
+    color: var(--grey);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    border:2px solid var(--white);
+    width: 35%;
+    height: auto;
+    margin-top: 2%;
+    gap: 10px;
+    padding-bottom: 5%;
+}
+h1{
+    font-weight: 400;
+    font-size: xx-large;
+    color: var(--white);
+}
+label{
+    font-size: larger;
+    margin-left: 20%;
+    color: var(--black);
+    align-self: flex-start;
+}
+input{
+
+    width: 60%;
+    padding: 10px;
+    border: 1px solid var(--grey);
+    border-radius: 4px;
+    font-size: 16px;
+    transition: 0.2s ease border-color;
+    font-size: large;
+}
+input:focus{
+    outline: none;
+    border:none;
+    border:3px solid var(--black);
+}
+input:placeholder{
+    color: var(--grey);
+    font-family: roboto,"Noto Sans Myanmar UI",arial,sans-serif;
+}
+input:placeholder-shown{
+    color: var(--grey)
+}
+button{
+    padding: 1rem 0.5rem;
+    background-color: var(--blue);
+    border:none;
+
+}
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
