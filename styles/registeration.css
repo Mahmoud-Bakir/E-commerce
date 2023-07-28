@@ -98,6 +98,7 @@ button:hover{
 }
 
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+
   @media (max-width: 850px) { 
 
     .form-parent{
@@ -113,6 +114,10 @@ button:hover{
     }
     button{
         margin-top: 20%;
+    }
+    .form.in{
+        margin-top: 0;
+    
     }
 
 }

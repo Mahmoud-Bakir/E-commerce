@@ -1,0 +1,54 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    font-family: 'Pacifico', cursive;
+    background-color:var(--beige);
+
+}
+*{
+    box-sizing: border-box;
+    font-family:'Pacifico', cursive;
+    ;
+}
+:root{
+    --beige:#dcae84;
+    --purple:#7c52cf;
+    --pink:#cd6ae7;
+    --black:#000000;
+    --grey:rgb(168, 168, 168);
+    --white:#f9f9f9;
+    --green:#6AD1B7;
+    --darkgreen:#57a692;
+}
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 10vh;
+    padding: 1rem 0.5rem;
+    background-color: var(--black);
+    position: sticky;
+    gap:30px;
+    padding-right: 10%;
+
+}
+.logo{
+    color: var(--white);
+    margin-left: 3%;
+    flex-grow: 1;
+}
+.icons{
+    cursor: pointer;
+    font-size: larger;
+    text-align: center;
+    border-radius: 10px;
+    width: 6%;
+    justify-self: flex-end;
+    color:var(--white);
+}
+.icons:hover{
+    background-color: var(--green);
+}
