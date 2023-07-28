@@ -2,7 +2,7 @@ body{
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100vh;
+    height: auto;
     font-family: 'Pacifico', cursive;
     background-color:var(--beige);
 
@@ -14,12 +14,12 @@ body{
 }
 :root{
     --beige:#dcae84;
-    --purple:#5d18ec;
+    --purple:#7c52cf;
     --pink:#cd6ae7;
     --black:#000000;
     --grey:rgb(168, 168, 168);
     --white:#f9f9f9;
-    --blue:#A6EBF5;
+    --green:#6AD1B7;
 }
 .form-parent{
     display: flex;
@@ -33,19 +33,20 @@ body{
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
-    border:2px solid var(--white);
     width: 35%;
     height: auto;
     margin-top: 2%;
     gap: 10px;
-    padding-bottom: 5%;
+    padding-bottom: 2%;
+    background-color: var(--white);
 }
 h1{
     font-weight: 400;
     font-size: xx-large;
-    color: var(--white);
+    color: var(--beige);
 }
 label{
+    font-weight: 100;
     font-size: larger;
     margin-left: 20%;
     color: var(--black);
@@ -74,10 +75,35 @@ input:placeholder-shown{
     color: var(--grey)
 }
 button{
-    padding: 1rem 0.5rem;
-    background-color: var(--blue);
+    color: var(--white);
+    padding: 1rem 1rem;
+    background-color: var(--green);
     border:none;
+    border-radius: 10px;
+    align-self: flex-end;
+    font-size: large;
+    margin-top: 5%;
+    margin-right:10%;
+    cursor: pointer;
 
 }
 
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+  @media (max-width: 850px) { 
+
+    .form-parent{
+        width: 100%;
+        height: 100vh;
+    }
+    .form{
+        width: 100%;
+        height:100vh;
+        margin-top: 0%;
+        padding-top: 20%;
+        border-radius: 0px;
+    }
+    button{
+        margin-top: 20%;
+    }
+
+}
