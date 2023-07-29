@@ -4,12 +4,13 @@ body{
     width: 100%;
     height: auto;
     font-family: 'Pacifico', cursive;
-    background-color:var(--beige);
-
+    background-color:var(--white);
 }
+
 *{
     box-sizing: border-box;
     font-family:'Pacifico', cursive;
+    margin: 0
     ;
 }
 :root{
@@ -19,8 +20,10 @@ body{
     --black:#000000;
     --grey:rgb(168, 168, 168);
     --white:#f9f9f9;
+    --lightwhite:rgb(255,255,255,0.5);
     --green:#6AD1B7;
     --darkgreen:#57a692;
+    --blue:#9bd6e4;
 }
 .nav{
     display: flex;
@@ -28,17 +31,17 @@ body{
     justify-content: space-between;
     width: 100%;
     height: 10vh;
-    padding: 1rem 0.5rem;
+    padding: 1rem 0.2rem;
     background-color: var(--black);
-    position: sticky;
+    position: fixed;
     gap:30px;
-    padding-right: 10%;
 
 }
 .logo{
-    color: var(--white);
+    color: var(--green);
     margin-left: 3%;
-    flex-grow: 1;
+    flex-grow: 2;
+    font-size: x-large;
 }
 .icons{
     cursor: pointer;
@@ -48,7 +51,80 @@ body{
     width: 6%;
     justify-self: flex-end;
     color:var(--white);
+    transition: 0.1s ease border-color;
+    flex-shrink: 0.5;
 }
 .icons:hover{
     background-color: var(--green);
+}
+.main-icons{
+    display: flex;
+    width: 6%;
+    margin-left: 5%;
+    cursor: pointer;
+    max-width:100px ;
+    max-height: auto;
+}
+.main-icons img{
+    cursor: pointer;
+    max-width:100px ;
+    max-height: auto;
+    scale: 0.7;
+}
+.hero-section{
+    display: flex;
+    width: 100%;
+    height: 750px;
+    background-color: var(--beige);
+}
+.left-hero{
+    font-weight: 100;
+    font-size: xx-large;
+    display: flex;
+    margin-left: 5%;
+    margin-top: 5%;
+    width: 30%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+}
+.left-hero-title{
+    padding: 0.5rem 0.25rem;
+    background-color: var(--green);
+    border-radius: 10px;
+    
+}
+.right-hero{
+    display: flex;
+    width: 70%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+}
+.img-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    width: 500px;
+    height: 500px;
+    box-sizing: border-box;
+    background-color: var(--lightwhite);
+    border-radius: 10px;
+
+}
+.img-container img{
+  max-width: 100%;
+  max-height: 100%;
+
+}
+.fade-in-out {
+    opacity: 0;
+    transition: opacity 1s ease; 
+  }
+.show {
+    opacity: 1;
+  }
+.active-text{
+    color: var(--white);
 }
