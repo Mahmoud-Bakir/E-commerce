@@ -109,13 +109,15 @@ body{
     width: 500px;
     height: 500px;
     box-sizing: border-box;
-    background-color: var(--lightwhite);
-    border-radius: 10px;
+    background-color: var(--black);
+    border-radius: 300px 40px 300px 20px;
+
 
 }
 .img-container img{
   max-width: 100%;
   max-height: 100%;
+  scale: 1.25;
 
 }
 .fade-in-out {
@@ -127,4 +129,13 @@ body{
   }
 .active-text{
     color: var(--white);
+}
+.footer{
+
+}
+footer{
+    color: var(--white);
+    display: flex;
+    background-color: var(--black);
+    padding: 1rem 0.25rem;
 }
