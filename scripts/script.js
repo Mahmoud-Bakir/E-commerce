@@ -39,44 +39,42 @@ browse.addEventListener("click",()=>{
 
 }
 pages.page_browse = function(){
-  const profile = document.getElementById("profile")
-  const home = document.getElementById("home")
+  document.addEventListener("DOMContentLoaded", function () {
+    const profile = document.getElementById("profile")
+    const home = document.getElementById("home")
+    profile.addEventListener("click",()=>{
+      window.location.href="../pages/profile.html"
+    })
+    home.addEventListener("click",()=>{
+      window.location.href="../pages/index.html"
+    })
 
 
-  profile.addEventListener("click",()=>{
-    window.location.href="../pages/profile.html"
-  })
-  home.addEventListener("click",()=>{
-    window.location.href="../pages/index.html"
-  })
-document.addEventListener('DOMContentLoaded', function () {
-    const toggleMenuButton = document.getElementById('toggleMenuButton');
-    const menuItems = document.getElementById('menuItems');
+    const toggleMenuButton = document.getElementById("toggleMenuButton");
+    const menuItems = document.getElementById("menuItems");
+    const clear = document.getElementById("clear")
 
-    toggleMenuButton.addEventListener('click', function () {
-        // Toggle the visibility of the menu items
-        if (menuItems.style.display === 'block') {
-            menuItems.style.display = 'none';
+    toggleMenuButton.addEventListener("click", function () {
+        if (menuItems.style.display === "block") {
+            menuItems.style.display = "none";
         } else {
-            menuItems.style.display = 'block';
+            menuItems.style.display = "block";
         }
     });
-
-    // Add event listeners to filter options
-    const filters = document.querySelectorAll('.filter');
+    const filters = document.querySelectorAll(".filter");
     filters.forEach(filter => {
-        filter.addEventListener('click', function () {
-            // Hide all sub-menus
-            const subMenus = document.querySelectorAll('.sub-menu');
-            subMenus.forEach(subMenu => subMenu.style.display = 'none');
-
-            // Show the sub-menu for the selected category
+        filter.addEventListener("click", function () {
+            clear.style.display="flex"
+            const subMenus = document.querySelectorAll(".sub-menu");
+            subMenus.forEach(subMenu => subMenu.style.display = "none");
             const category = this.dataset.category;
-            const selectedSubMenu = this.querySelector('.sub-menu');
-            selectedSubMenu.style.display = 'block';
+            const selectedSubMenu = this.querySelector(".sub-menu");
+            selectedSubMenu.style.display = "block";
         });
     });
 });
+
+
 
   
 }

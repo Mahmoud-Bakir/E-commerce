@@ -77,11 +77,15 @@ main{
 .title:hover{
     color: var(--green);
 }
-.sub-menu li:hover {
-    color: #6AD1B7;
-
+.title:active{
+    color: var(--darkgreen);
 }
-
+.sub-menu li:hover {
+    color: var(--green);
+}
+.sub-menu li:active {
+    color: var(--darkgreen);
+}
 
 .main-icons{
     display: flex;
@@ -100,7 +104,7 @@ main{
 .body-container{
     display: flex;
     width: 100%;
-    height: 100vh;
+    height: auto;
     background-color: var(--beige);
     gap: 10px;
 
@@ -112,7 +116,7 @@ main{
     flex-direction: column;
     padding: 1.25rem 0.8rem;
     width: 14%;
-    height: 70vh;
+    height: 580px;
     border-radius: 10px;
     position: fixed;
     background-color: var(--white);
@@ -123,10 +127,14 @@ main{
     height: 100vh;
 }
 .right{
+    
+    margin-left: 18%;
     display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
     width:80%;
-    height: auto;
-    padding: 2rem 2rem;
+    height: 100%;
+    padding: 7rem 2rem;
     
 }
 
@@ -136,7 +144,10 @@ main{
     margin-top: 5px;
     padding-left: 20px;
 }
-#toggleMenuButton{
+.menu-items{
+    display: none;
+}
+.toggleMenuButton{
     font-size: larger;
     padding: 0.5rem 0.25rem;
     text-align: center;
@@ -146,11 +157,83 @@ main{
     margin-bottom: 5%;
     cursor: pointer;
 }
-#toggleMenuButton img{
+.toggleMenuButton img{
      scale: 1.25;
      cursor:auto;
 }
-#toggleMenuButton:hover{
+.toggleMenuButton:hover{
     background-color: var(--green);
     border-radius: 10px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 23%;
+    height: 250px;
+    background-color: var(--white);
+    border-radius: 10px;
+    position: relative;
+    transition: height 2s;
+    transition-timing-function: ease;
+   
+}
+.card-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 250px;
+
+}
+.card-image img{
+    max-width: 100%;
+    max-height: 100%;
+}
+.card:hover {
+    transition: height 2s;
+    transition-timing-function: ease;
+    height: 335px;
+  }
+  .card:hover .card-description{
+    display: block;
+  }
+
+.card-description{
+    margin-left: 5%;
+    display: none;
+    gap: 10px;
+    padding: 5px;
+    width: 100%;
+    color: black;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+   
+}
+.clear{
+    display: none;
+    font-size: larger;
+    padding: 0.5rem 0.25rem;
+    text-align: center;
+    width: 50%;
+    border: none;
+    background-color: var(--white);
+    margin-bottom: 5%;
+    cursor: pointer;
+    margin-top: 90%;
+    border-radius: 10px;
+}
+.clear:hover{ 
+     background-color: var(--green);
+}
+.clear:active{
+    background-color: #57a692;
+}
+.card-description-title{
+    color: var(--darkgreen);
+    font-size: larger;
+}
+.card-description-body{
+    font-size: larger;
 }
