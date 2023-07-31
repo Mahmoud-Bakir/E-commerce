@@ -49,9 +49,37 @@ pages.page_browse = function(){
   home.addEventListener("click",()=>{
     window.location.href="../pages/index.html"
   })
+document.addEventListener('DOMContentLoaded', function () {
+    const toggleMenuButton = document.getElementById('toggleMenuButton');
+    const menuItems = document.getElementById('menuItems');
 
+    toggleMenuButton.addEventListener('click', function () {
+        // Toggle the visibility of the menu items
+        if (menuItems.style.display === 'block') {
+            menuItems.style.display = 'none';
+        } else {
+            menuItems.style.display = 'block';
+        }
+    });
+
+    // Add event listeners to filter options
+    const filters = document.querySelectorAll('.filter');
+    filters.forEach(filter => {
+        filter.addEventListener('click', function () {
+            // Hide all sub-menus
+            const subMenus = document.querySelectorAll('.sub-menu');
+            subMenus.forEach(subMenu => subMenu.style.display = 'none');
+
+            // Show the sub-menu for the selected category
+            const category = this.dataset.category;
+            const selectedSubMenu = this.querySelector('.sub-menu');
+            selectedSubMenu.style.display = 'block';
+        });
+    });
+});
+
+  
 }
-
 pages.loadFor = (page) => {
     eval("pages.page_" + page + "();")
 }
