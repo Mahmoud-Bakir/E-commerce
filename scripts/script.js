@@ -78,6 +78,108 @@ pages.page_browse = function(){
 
   
 }
+pages.page_admin = function(){
+  const btn = document.getElementById("add")
+  btn.addEventListener("click",()=>{
+    window.location.href="../pages/form.html"
+  })
+
+}
+pages.page_form = function(){
+  const token = localStorage.getItem('token');
+  function isEmpty(param){
+    if (param.trim()!=="")
+    return false
+    else
+    return true
+  }
+
+  const btn = document.getElementById("add")
+  const err = document.getElementById("error")
+  let gender_id = 0
+  let category_id=0
+
+
+  btn.addEventListener("click",()=>{
+    const name = document.getElementById("name").value
+    const gender = document.getElementById("gender").value
+    const category = document.getElementById("category").value
+    const price = document.getElementById("price").value
+    const desc = document.getElementById("desc").value
+    const image = document.getElementById("image").value
+    if (!isEmpty(name)){
+      err.innerText=""
+      if(!isEmpty(gender) && (gender.toLowerCase()=="male"|| gender.toLowerCase()=="female") ){
+          err.innerText=""
+          if(!isEmpty(category)){
+              err.innerText=""
+              if(!isEmpty(price)){
+                  err.innerText=""
+                  if(!isEmpty(desc)){
+                    err.innerText=""
+                     if(!isEmpty(image)){
+                      err.innerText=""
+                          data = new FormData()
+                          if (gender=="male")
+                          gender_id=1
+                          else
+                          gender_id=2
+
+                          switch (category.toLowerCase) {
+                            case "shirts":
+                                category_id=1
+                                break
+                            case "pants":     
+                                category_id=2
+                                break
+                            case "suits":
+                                category_id=3
+                                break
+                            case "dresses":
+                                category_id=4
+                                break
+                            case "shoes":
+                                category_id=5
+                                break
+                            case "sunglasses":
+                                category_id=6
+                                break 
+                            case "watches":
+                                category_id=7
+                                break     }
+                          data.append("name",name)
+                          data.append("description",desc)
+                          data.append("price",price)
+                          data.append("image",image)
+                          data.append("category",category_id)
+                          data.append("gender",gender_id)
+
+                          axios.post('http://localhost:8000/api/add',data,{
+                            headers: {
+                                Authorization: `Bearer ${token}`
+                            }
+                        })
+                          .then(response => {
+                             
+                              console.log(response.data);
+                          })
+                          .catch(error => {
+                              
+                              console.error(error);
+                          });
+
+
+                      }else(err.innerText="kindly upload an image of the product")
+                    }else(err.innerText="kindly write a description for the product")
+                }else err.innerText="kindly enter a price for the product"
+              }else err.innerText="kindly enter a category for the product"
+          }else
+              err.innerText="gender should be either a male or a female" 
+      }else
+          err.innerText="kindly enter a name for the product"
+    })
+  
+}
 pages.loadFor = (page) => {
     eval("pages.page_" + page + "();")
 }

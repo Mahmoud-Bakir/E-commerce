@@ -232,8 +232,8 @@ main{
 }
 .card-description-title{
     color: var(--darkgreen);
-    font-size: larger;
+    font-size: x-large;
 }
-.card-description-body{
-    font-size: larger;
+.card-description-desc{
+    font-size: medium;
 }

@@ -1,0 +1,93 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+    font-family: 'Poppins',"sans-serif";
+    background-color:var(--white);
+}
+
+*{
+    box-sizing: border-box;
+    font-family:'Pacifico', cursive;
+    margin: 0
+    ;
+}
+:root{
+    --beige:#dcae84;
+    --purple:#7c52cf;
+    --pink:#cd6ae7;
+    --black:#000000;
+    --grey:rgb(168, 168, 168);
+    --white:#f9f9f9;
+    --lightwhite:rgb(255,255,255,0.5);
+    --green:#6AD1B7;
+    --darkgreen:#57a692;
+    --blue:#9bd6e4;
+}
+.title{
+    width: 100%;
+    padding: 2rem 0.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    gap: 20px;
+
+}
+.subtitle{
+    color: var(--grey);
+    font-size: x-large;
+}
+.choices{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8rem 0.2;
+}
+button{
+    font-size: x-large;
+    padding: 0.5rem 0.25rem;
+    width: 100px;
+    height: 100px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--white);
+    margin-bottom: 5%;
+    cursor: pointer;
+    background-color: var(--darkgreen);
+    
+
+}
+.admin-panel {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    display: block;
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+}
+
+.form-group button {
+    padding: 8px 16px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/registeration.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
+    <title>form</title>
+</head>
+<body>
+    <section class="form-parent">
+        <div class="form">
+           <h1>Add Product</h1>
+           <label for=""> Name</label>
+           <input type="text" name="" id="name" placeholder="Product name" >
+           <label for=""> Gender</label>
+           <input type="text" name="" id="gender" placeholder="User gender" >
+           <label for="">Category</label>
+           <input type="text" name="" id="category" placeholder="Product category" >
+           <label for=""> price </label>
+           <input type="number" name="" id="price" placeholder="Product price" >
+           <label for=""> Description </label>
+           <textarea name="" id="desc" cols="30" rows="10" id="desc" placeholder="Product description" class="area"></textarea>
+           <label for=""> Image </label>
+           <input type="file" name="" id="image" class="file" accept="image/*">
+           <label for="" id="error"></label>
+           <button id="add" class="btn"> Add </button>
+        </div>
+    </section>
+    <script src="../scripts/script.js"></script>
+    <script>
+        pages.loadFor("form")
+    </script>
+</body>
+</html>
