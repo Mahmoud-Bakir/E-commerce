@@ -1,5 +1,62 @@
 const pages = {}
+pages.page_signup = function(){
+  const btn = document.getElementById("btn-signup")
+  const err = document.getElementById("error")
+  btn.addEventListener("click",()=>{
+    const first_name = document.getElementById("first_name").value
+    const last_name = document.getElementById("last_name").value
+    const email = document.getElementById("email").value
+    const password = document.getElementById("password").value
+    
+   const data = new FormData()
+    data.append("first_name",first_name)
+    data.append("last_name",last_name)
+    data.append("email",email)
+    data.append("password",password)
 
+    axios.post('http://127.0.0.1:8000/api/register',data)
+    .then((response)=>{
+      console.log(response.data)
+      console.log(response.data.authorisation.token)
+      window.localStorage.setItem("token",response.data.authorisation.token)
+      window.localStorage.setItem("id",response.data.user.id)
+
+      window.location.href="../pages/index.html"
+  
+    }).catch((err)=>{
+      console.log(err)
+
+    }) })
+  }
+pages.page_signin = function(){
+  const btn = document.getElementById("btn-signin")
+  btn.addEventListener("click",()=>{
+    const email = document.getElementById("email").value
+    const password = document.getElementById("password").value
+
+    const data = new FormData()
+    data.append("email",email)
+    data.append("password",password)
+   
+
+    axios.post('http://127.0.0.1:8000/api/login',data)
+    .then((response)=>{
+      console.log(response.data)
+      console.log(response.data.authorisation.token)
+      window.localStorage.setItem("token",response.data.authorisation.token)
+      window.localStorage.setItem("id",response.data.user.id)
+      window.location.href="../pages/index.html"
+  
+    }).catch((err)=>{
+      console.log(err)
+
+    }) })
+
+  }
+ 
+
+
+  
 pages.page_index = function(){
 
       const sources= ["../assets/w1.png", "../assets/m1.png","../assets/w2.png","../assets/m2.png"]
@@ -83,6 +140,8 @@ pages.page_admin = function(){
   btn.addEventListener("click",()=>{
     window.location.href="../pages/form.html"
   })
+}
+pages.page_admin = function(){
 
 }
 pages.page_form = function(){

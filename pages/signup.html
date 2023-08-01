@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
     <title>signup</title>
 </head>
 <body>
@@ -16,14 +17,18 @@
            <label for=""> First name</label>
            <input type="text" name="" id="first_name" placeholder="First name" >
            <label for=""> Last name</label>
-           <input type="text" name="" id="Last_name" placeholder="last name" >
+           <input type="text" name="" id="last_name" placeholder="last name" >
            <label for=""> Email </label>
            <input type="text" name="" id="email" placeholder="Email" >
            <label for=""> Password </label>
-           <input type="password" name="" id="Password" placeholder="Password" >
+           <input type="password" name="" id="password" placeholder="Password" >
            <label for="" id="error"></label>
            <button id="btn-signup" class="btn"> Submit </button>
         </div>
     </section>
+    <script src="../scripts/script.js"></script>
+    <script>
+        pages.loadFor("signup")
+    </script>
 </body>
 </html>
