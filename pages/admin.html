@@ -12,52 +12,18 @@
 </head>
 <body>
     <div class="title">
-      <p>Welcome Babt</p> 
+      <p id="greet">Welcome </p> 
       <span class="subtitle">would you like to</span>
     </div>
     <div class="choice">
-        <div class="choice">
+        <div class="choices">
             <button id="add">Add an Item</button>
         </div>
     </div>
     <div class="panel">
     </div>
 
-    <div class="admin-panel">
-        <h2>Add Product</h2>
-        <form id="addProductForm">
-            <div class="form-group">
-                <label for="productName">Product Name:</label>
-                <input type="text" id="productName" name="productName" required>
-            </div>
-
-            <div class="form-group">
-                <label for="productDescription">Product Description:</label>
-                <textarea id="productDescription" name="productDescription" required></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="productPrice">Product Price:</label>
-                <input type="number" id="productPrice" name="productPrice" required>
-            </div>
-
-            <div class="form-group">
-                <label for="productCategory">Product Category:</label>
-                <input type="text" id="productCategory" name="productCategory" required>
-            </div>
-
-            <div class="form-group">
-                <label for="productGender">Product Gender:</label>
-                <select id="productGender" name="productGender" required>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="unisex">Unisex</option>
-                </select>
-            </div>
-
-            <button type="submit">Add Product</button>
-        </form>
-    </div>
+ 
     <script src="../scripts/script.js"></script>
     <script>
         pages.loadFor("admin")

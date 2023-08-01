@@ -27,7 +27,7 @@ pages.page_signup = function(){
       console.log(err)
 
     }) })
-  }
+}
 pages.page_signin = function(){
   const btn = document.getElementById("btn-signin")
   btn.addEventListener("click",()=>{
@@ -45,18 +45,17 @@ pages.page_signin = function(){
       console.log(response.data.authorisation.token)
       window.localStorage.setItem("token",response.data.authorisation.token)
       window.localStorage.setItem("id",response.data.user.id)
+      if(response.data.user.user_type == 2)
       window.location.href="../pages/index.html"
-  
+      else
+      window.location.href="../pages/admin.html"
+      window.localStorage.setItem("first_name",response.data.user.first_name)
     }).catch((err)=>{
       console.log(err)
 
     }) })
 
-  }
- 
-
-
-  
+}
 pages.page_index = function(){
 
       const sources= ["../assets/w1.png", "../assets/m1.png","../assets/w2.png","../assets/m2.png"]
@@ -129,6 +128,41 @@ pages.page_browse = function(){
             selectedSubMenu.style.display = "block";
         });
     });
+
+  
+
+   let products=[]
+
+    axios.get("http://127.0.0.1:8000/api/get_products")
+      .then((response) => {
+        console.log(response);
+        console.log(response.data);
+        products = response.data;
+        displayProducts();
+      })
+      .catch((error) => console.error("Error fetching classes:", error));
+      function displayProducts() {
+        const right = document.querySelector(".right");
+        right.innerHTML = "";
+        products.forEach((product) => {
+          const product_div = document.createElement("div");
+          product_div.classList.add("card");
+      
+          product_div.innerHTML = `
+          <div class="card-image">
+          <img src="../assets/${product.image_name}" alt="">
+          </div>
+          <div class="card-description">
+          <p><span class="card-description-title" id="title">${product.name}</span></p>
+          <p> <span class="card-description-body" id="body">${product.desc}</span></p>
+          <p<span class="card-description-body" id="price">price:${product.price}$</span></p>
+          
+      </div>
+          `;
+          right.appendChild(product_div);
+        });
+      }
+
 });
 
 
@@ -137,12 +171,13 @@ pages.page_browse = function(){
 }
 pages.page_admin = function(){
   const btn = document.getElementById("add")
+  const boss = document.getElementById("greet")
+  boss.innerText=`Welcome ${window.localStorage.getItem("first_name")}`
+
+  console.log(btn)
   btn.addEventListener("click",()=>{
     window.location.href="../pages/form.html"
   })
-}
-pages.page_admin = function(){
-
 }
 pages.page_form = function(){
   const token = localStorage.getItem('token');
@@ -153,38 +188,55 @@ pages.page_form = function(){
     return true
   }
 
-  const btn = document.getElementById("add")
+  const btn_add = document.getElementById("add")
+  const btn_back = document.getElementById("back")
   const err = document.getElementById("error")
   let gender_id = 0
   let category_id=0
 
+  btn_back.addEventListener("click",()=>{
+    window.location.href="../pages/admin.html"
+  })
 
-  btn.addEventListener("click",()=>{
+
+  btn_add.addEventListener("click",()=>{
     const name = document.getElementById("name").value
     const gender = document.getElementById("gender").value
     const category = document.getElementById("category").value
     const price = document.getElementById("price").value
     const desc = document.getElementById("desc").value
-    const image = document.getElementById("image").value
+    const image = document.getElementById("image")
+    
     if (!isEmpty(name)){
       err.innerText=""
+      console.log(name)
+      console.log(typeof name)
       if(!isEmpty(gender) && (gender.toLowerCase()=="male"|| gender.toLowerCase()=="female") ){
           err.innerText=""
+          console.log(gender)
+          console.log(typeof gender)
           if(!isEmpty(category)){
               err.innerText=""
+              console.log(category)
+              console.log(typeof category)
               if(!isEmpty(price)){
                   err.innerText=""
+                  const price_value= parseFloat(price)
+                  console.log(price)
+                  console.log(typeof price)
                   if(!isEmpty(desc)){
                     err.innerText=""
-                     if(!isEmpty(image)){
+                    console.log(desc)
+                    console.log(typeof desc)
+                     if(!isEmpty(image.value)){
                       err.innerText=""
-                          data = new FormData()
+                          const data = new FormData()
                           if (gender=="male")
                           gender_id=1
                           else
                           gender_id=2
 
-                          switch (category.toLowerCase) {
+                          switch (category.toLowerCase()) {
                             case "shirts":
                                 category_id=1
                                 break
@@ -206,27 +258,26 @@ pages.page_form = function(){
                             case "watches":
                                 category_id=7
                                 break     }
+                           const selected = image.files[0].name 
+                           const choice = `C:/Users/Mahmoud Bakir/Desktop/SEF_2023/Assignments/E-commerce/E-commerce-FE/assets/${selected}`
+                           console.log (choice)
+                           console.log(typeof price_value)
+                         
                           data.append("name",name)
                           data.append("description",desc)
-                          data.append("price",price)
-                          data.append("image",image)
+                          data.append("price",price_value)
+                          data.append("image",choice)
                           data.append("category",category_id)
                           data.append("gender",gender_id)
+                          
 
-                          axios.post('http://localhost:8000/api/add',data,{
-                            headers: {
-                                Authorization: `Bearer ${token}`
-                            }
-                        })
-                          .then(response => {
-                             
-                              console.log(response.data);
+                          axios.post('http://127.0.0.1:8000/api/add',data)
+                          .then((response)=>{
+                            console.log(response.data)})
+                            
+                          .catch((err)=>{
+                            console.log(err)
                           })
-                          .catch(error => {
-                              
-                              console.error(error);
-                          });
-
 
                       }else(err.innerText="kindly upload an image of the product")
                     }else(err.innerText="kindly write a description for the product")
